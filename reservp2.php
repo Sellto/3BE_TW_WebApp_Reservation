@@ -1,29 +1,27 @@
-<!Doctype html>
-<html>
-  <head>
-     <link rel="stylesheet" type="text/css" href="css/style.css">
-     <meta charset="utf-8"/>
-  </head>
-  <body>
+<?php $_SESSION['Firstview'] = False;?>
     <div class="main">
       <div class="title">
         Detail de Réservations
+        <?php echo $_SESSION['nplace']; ?>
       </div>
       <div class="details">
       </div>
-      <form method="post" action="reservation.php">
+      <form method="post" action="index.php">
         <div class="Form">
-            <div class="lineform"><div class="nameform">Nom</div><input type="text" name="namefirstperson"></div>
-            <div class="lineform"><div class="nameform">Age</div><input type="text" name="agefirstperson"></div>
-            <div class="lineform"><div class="nameform">Nom</div><input type="text" name="namesecondperson"></div>
-            <div class="lineform"><div class="nameform">Age</div><input type="text" name="agesecondperson"></div>
+
+            <?php
+            for ($i = 1;$i <= $_SESSION['nplace'];$i++)
+            {
+              echo '<div class="lineform"><div class="nameform">Nom</div><input type="text" name="name[]"></div>';
+              echo '<div class="lineform"><div class="nameform">Age</div><input type="text" name="age[]"></div>';
+            }
+            ?>
+
         </div>
         <nav>
-            <input type="submit" name ="next" value="Etape suivante">
-            <input type="submit" name ="previous" value="Retour à la precédente">
+            <input type="submit" name ="gotoend" value="Etape suivante">
+            <input type="submit" name ="goto1" value="Retour à la precédente">
             <input type="submit" name ="cancel" value="Annuler la réservation">
         </nav>
     </form>
     <div>
-  </body>
-</html>
