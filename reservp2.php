@@ -1,8 +1,6 @@
-<?php $_SESSION['Firstview'] = False;?>
-    <div class="main">
+<div class="main">
       <div class="title">
         Detail de Réservations
-        <?php echo $_SESSION['nplace']; ?>
       </div>
       <div class="details">
       </div>
@@ -24,4 +22,4 @@
             <input type="submit" name ="cancel" value="Annuler la réservation">
         </nav>
     </form>
-    <div>
+<div>

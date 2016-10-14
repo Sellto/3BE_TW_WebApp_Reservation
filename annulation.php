@@ -2,7 +2,7 @@
   Annulation
 </div>
 <form>
-<input type="submit" name ="blabl" value="retour">
+<input type="submit" name ="return" value="retour">
 </form>
 <?php
 session_destroy();
