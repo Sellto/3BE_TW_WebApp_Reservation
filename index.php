@@ -1,4 +1,5 @@
 <!Doctype html>
+<?php session_start() ?>
 <html>
 <head>
   <link rel="stylesheet" type="text/css" href="css/style.css">
@@ -6,37 +7,22 @@
 </head>
 <body>
   <?php
-  session_start();
-  if (isset($_POST['goto2']))
+  if (!isset($_SESSION['whereimi']))
   {
-      $_SESSION['dest'] = $_POST['dest'];
-      $_SESSION['nplace'] = $_POST['nplace'];
-      if (isset($_POST['assurance']))
-      {
-        $_SESSION['assurance'] = "Oui";
-      }
-      include('reservp2.php');
+    $_SESSION['whereimi'] = 0;
   }
-  elseif (isset($_POST['gotoend']))
+  include('class_reservation.php');
+  include('class_navigation.php');
+  $nav = new Navigation($_SESSION['whereimi']);
+  $nav->AddView("Main","reservp1.php");
+  $reserv = new Reservation("","");
+  if (isset($_POST['button']) == "Next")
   {
-      $_SESSION['name'] =  $_POST['name'];
-      $_SESSION['age'] =  $_POST['age'];
-      include('confirmation.php');
+    $nav.Next();
+
   }
-  elseif (isset($_POST['cancel']))
-  {
-      include('annulation.php');
-  }
-  elseif (isset($_POST['goto1']))
-  {
-      include('reservp1.php');
-  }
-  else
-  {
-    $_SESSION['dest'] = "";
-    $_SESSION['nplace'] = 0;
-    include('reservp1.php');
-  }
-  ?>
+  echo $nav->GetPostition();
+    ?>
+
 </body>
 </html>

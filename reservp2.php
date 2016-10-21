@@ -17,9 +17,9 @@
 
         </div>
         <nav>
-            <input type="submit" name ="gotoend" value="Etape suivante">
-            <input type="submit" name ="goto1" value="Retour à la precédente">
-            <input type="submit" name ="cancel" value="Annuler la réservation">
+            <input type="submit" name ="button" value="Previous">
+            <input type="submit" name ="button" value="Next">
+            <input type="submit" name ="button" value="Cancel">
         </nav>
     </form>
 <div>
