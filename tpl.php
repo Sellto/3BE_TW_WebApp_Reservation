@@ -1,6 +1,4 @@
-
-
-    <div class="main">
+<div class="main">
       <div class="title">
         Reservation
       </div>
@@ -15,8 +13,17 @@
             <div class="lineform"><div class="nameform">Assurance annulation</div><input type="checkbox" name="assurance" value="Oui"></div>
         </div>
         <nav>
-            <input type="submit" name="goto2" value="Next">
-            <input type="submit" name="goto2" value="Cancel">
+            <?php
+              if ($_SESSION['whereami'] > 0 )
+                {
+                  echo '<input type="submit" name="button" value="Previous">';
+                }
+              if ($_SESSION['whereami'] < $_SESSION['nbre_page'])
+                {
+                  echo '<input type="submit" name="button" value="Next">';
+                }
+            ?>
+            <input type="submit" name="button" value="Cancel">
         </nav>
     </form>
-    <div>
+<div>

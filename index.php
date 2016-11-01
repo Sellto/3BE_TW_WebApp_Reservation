@@ -1,5 +1,6 @@
-<!Doctype html>
-<?php session_start() ?>
+<?php
+ session_start();
+ ?>
 <html>
 <head>
   <link rel="stylesheet" type="text/css" href="css/style.css">
@@ -7,22 +8,25 @@
 </head>
 <body>
   <?php
-  if (!isset($_SESSION['whereimi']))
+  include('model/model.php');
+  $_SESSION['nbre_page'] = $nav->Max();
+  if (!isset($_SESSION['whereami']))
   {
-    $_SESSION['whereimi'] = 0;
+    $_SESSION['whereami'] = 0;
   }
-  include('class_reservation.php');
-  include('class_navigation.php');
-  $nav = new Navigation($_SESSION['whereimi']);
-  $nav->AddView("Main","reservp1.php");
-  $reserv = new Reservation("","");
-  if (isset($_POST['button']) == "Next")
+  switch ($_POST['button'])
   {
-    $nav.Next();
-
+    case "Next" :
+      $_SESSION['whereami'] =  $nav->Next();
+      break;
+    case "Previous":
+      $_SESSION['whereami'] =  $nav->Previous();
+      break;
+    case "Cancel":
+      $_SESSION['whereami'] = $nav->Reset();
+      break;
   }
-  echo $nav->GetPostition();
-    ?>
-
+  $nav->GetView($nav->ImHere());
+  ?>
 </body>
 </html>
