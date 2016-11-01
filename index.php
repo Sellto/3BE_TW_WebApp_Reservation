@@ -3,7 +3,7 @@
  ?>
 <html>
 <head>
-  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="stylesheet" type="text/css" href="views/static/style.css">
   <meta charset="utf-8">
 </head>
 <body>
@@ -27,6 +27,7 @@
       break;
   }
   $nav->GetView($nav->ImHere());
+  include('views/content/navbar.php');
   ?>
 </body>
 </html>

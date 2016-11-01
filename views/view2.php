@@ -16,10 +16,5 @@
             ?>
 
         </div>
-        <nav>
-            <input type="submit" name ="button" value="Previous">
-            <input type="submit" name ="button" value="Next">
-            <input type="submit" name ="button" value="Cancel">
-        </nav>
     </form>
 <div>
