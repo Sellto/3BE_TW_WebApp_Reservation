@@ -1,6 +1,6 @@
 confirmation
 <?php
-echo $_SESSION['dest'];
+echo $_SESSION['Destination'];
 echo $_SESSION['assurance'];
 echo $_SESSION['nplace'];
 for ($i = 0;$i < $_SESSION['nplace'];$i++)

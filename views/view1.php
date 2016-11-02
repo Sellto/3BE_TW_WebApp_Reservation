@@ -8,9 +8,10 @@
       </div>
       <form method="POST" action="index.php">
         <div class="Form">
-            <div class="lineform"><div class="nameform">Destination</div><input type="text" name="dest"> </div>
-            <div class="lineform"><div class="nameform">Nombres de places</div><input type="text" name="nplace"></div>
-            <div class="lineform"><div class="nameform">Assurance annulation</div><input type="checkbox" name="assurance" value="Oui"></div>
+            <div class="lineform"><div class="nameform">Destination</div><input type="text" name="dest" value=<?php echo $_SESSION['Destination'] ?>> </div>
+            <div class="lineform"><div class="nameform">Nombres de places</div><input type="text" name="nplace" value=<?php echo $_SESSION['nplace'] ?>></div>
+            <div class="lineform"><div class="nameform">Assurance annulation</div><input type="checkbox" name="assurance"></div>
         </div>
+          <?php include('controllers/navbar.php'); ?>
     </form>
 <div>

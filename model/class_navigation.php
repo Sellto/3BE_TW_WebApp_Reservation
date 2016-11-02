@@ -45,6 +45,9 @@ public function ImHere()
 public function Reset()
 {
   $this->whereami = 0;
+  $_SESSION['Destination'] = "";
+  $_SESSION['nplace'] = "";
+  $_SESSION['assurance'] = off;
 }
 
 public function Max()

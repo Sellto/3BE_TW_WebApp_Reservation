@@ -14,7 +14,7 @@
               echo '<div class="lineform"><div class="nameform">Age</div><input type="text" name="age[]"></div>';
             }
             ?>
-
+            <?php include('controllers/navbar.php'); ?>
         </div>
     </form>
 <div>

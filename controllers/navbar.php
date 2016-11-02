@@ -1,4 +1,3 @@
-<form method="POST" action="index.php">
 <nav>
     <?php
       if ($_SESSION['whereami'] > 0 )
@@ -12,4 +11,3 @@
     ?>
     <input type="submit" name="button" value="Cancel">
 </nav>
-</form>
