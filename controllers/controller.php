@@ -9,7 +9,7 @@ switch ($_POST['button'])
     $_SESSION['whereami'] =  $nav->Previous();
     break;
   case "Cancel":
-    $_SESSION['whereami'] = $nav->Reset();
+    $nav->Reset();
     break;
 }
 ?>

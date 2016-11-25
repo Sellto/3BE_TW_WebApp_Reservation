@@ -2,11 +2,15 @@
 class Navigation
 {
 private $allofview = [];
-private $whereami;
+private $whereami = 0;
 
-public function __construct($position)
+public function __construct()
 {
-    $this->whereami=$position;
+}
+
+public function AddPosition($position)
+{
+  $this->whereami=$position;
 }
 
 public function AddView($include)
@@ -16,6 +20,7 @@ public function AddView($include)
 
 public function GetView($name)
 {
+  $reserv = unserialize($_SESSION['reserv']);
   include($this->allofview[$name]);
 }
 
@@ -44,10 +49,9 @@ public function ImHere()
 }
 public function Reset()
 {
+  var_dump($_SESSION['reserv']);
   $this->whereami = 0;
-  $_SESSION['Destination'] = "";
-  $_SESSION['nplace'] = "";
-  $_SESSION['assurance'] = off;
+  var_dump($_SESSION['reserv']);
 }
 
 public function Max()

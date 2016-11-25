@@ -8,9 +8,15 @@
 </head>
 <body>
   <?php
-  include('model/model.php');
-  include('controllers/controller.php');
-  $nav->GetView($nav->ImHere());
+  if(!empty($_GET['page']) && (is_file("model/model_".$_GET['page'].".php")))
+  {
+    include('model/model_manager.php');
+  }
+  else {
+    include('model/model_reservation.php');
+    include('controllers/controller.php');
+    $nav->GetView($nav->ImHere());
+  }
   ?>
 </body>
 </html>

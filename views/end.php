@@ -1,11 +1,11 @@
 confirmation
 <?php
-echo $_SESSION['Destination'];
-echo $_SESSION['assurance'];
-echo $_SESSION['nplace'];
-for ($i = 0;$i < $_SESSION['nplace'];$i++)
+echo $reserv->GetDestination();
+//echo $_SESSION['assurance'];
+echo $reserv->GetNplace();
+for ($i = 0;$i < $reserv->GetNplace();$i++)
 {
-  echo $_SESSION['name'][$i];
-  echo $_SESSION['age'][$i];
+  //echo $_SESSION['name'][$i];
+  //echo $_SESSION['age'][$i];
 }
 ?>
