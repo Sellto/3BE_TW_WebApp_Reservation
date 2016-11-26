@@ -14,8 +14,8 @@
   }
   else {
     include('model/model_reservation.php');
-    include('controllers/controller.php');
-    $nav->GetView($nav->ImHere());
+    include($views[$_SESSION['page']]);
+    include('controllers/navbar.php');
   }
   ?>
 </body>

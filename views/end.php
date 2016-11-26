@@ -1,11 +1,14 @@
 confirmation
 <?php
 echo $reserv->GetDestination();
-//echo $_SESSION['assurance'];
+echo $reserv->GetAssurance();
 echo $reserv->GetNplace();
-for ($i = 0;$i < $reserv->GetNplace();$i++)
+$name = $reserv->GetName();
+$age = $reserv->GetAge();
+for ($i = 0; $i < $reserv->GetNplace(); $i++)
 {
-  //echo $_SESSION['name'][$i];
-  //echo $_SESSION['age'][$i];
+    echo $name[$i];
+    echo $age[$i];
 }
 ?>
+<form method="POST" action="index.php" id="myform"></form>

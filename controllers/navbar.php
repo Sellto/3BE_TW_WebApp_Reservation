@@ -1,13 +1,17 @@
 <nav>
     <?php
-      if ($_SESSION['whereami'] > 0 )
+      if (($_SESSION['page'] > 0) && ($_SESSION['page'] < sizeof($views)-1))
         {
-          echo '<input type="submit" name="button" value="Previous">';
+          echo '<button type="submit" name="button" value="Previous" form="myform" > Previous </button>';
         }
-      if ($_SESSION['whereami'] < $_SESSION['nbre_page'])
+      if ($_SESSION['page'] < sizeof($views)-1)
         {
-          echo '<input type="submit" name="button" value="Next">';
+          echo '<button type="submit" name="button" value="Next" form="myform" > Next  </button>';
+        }
+      if ($_SESSION['page'] == sizeof($views)-1)
+        {
+          echo '<button type="submit" name="button" value="Sent" form="myform" > Send  </button>';
         }
     ?>
-    <input type="submit" name="button" value="Cancel">
+    <button type="submit" name="button" value="Cancel" form="myform" >Cancel</button>
 </nav>

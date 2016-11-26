@@ -1,5 +1,5 @@
 <?php
-  include('class_navigation.php');
+  //Reservation
   include('class_reservation.php');
   if (!isset($_SESSION['reserv']))
   {
@@ -9,37 +9,45 @@
   {
     $reserv = unserialize($_SESSION['reserv']);
   }
-  if (!isset($_SESSION['whereami']))
+  if (isset($_POST['dest'])){$reserv->AddDestination($_POST['dest']);}
+  if (isset($_POST['assurance'])){$reserv->AddAssurance($_POST['assurance']);}
+  if (isset($_POST['nplace'])){$reserv->AddNplace($_POST['nplace']);}
+  if (isset($_POST['name'])){$reserv->AddName($_POST['name']);}
+  if (isset($_POST['age'])){$reserv->AddAge($_POST['age']);}
+
+
+  //Navigation
+  if (!isset($views))
   {
-    $nav = new Navigation();
-    $nav->AddView("views/view1.php");
-    $nav->AddView("views/view2.php");
-    $nav->AddView("views/end.php");
+    $views[0] = "views/view1.php";
+    $views[1] = "views/view2.php";
+    $views[2] = "views/end.php";
   }
-  else {
-      $nav = unserialize($_SESSION['nav']);
-      $nav->AddPosition($_SESSION['whereami']);
-  }
-  if (isset($_POST['dest']))
+  if (!isset($_SESSION['page'])){$_SESSION['page'] = 0;}
+
+
+  if(isset($_POST['button']))
   {
-    $reserv->AddDestination($_POST['dest']);
-  }
-  if (isset($_POST['assurance']))
+  switch ($_POST['button'])
   {
-    $_SESSION['assurance'] = $_POST['assurance'];
+    case "Next" :
+      if ($_SESSION['page'] < sizeof($views)-1)
+      {
+      $_SESSION['page'] =  $_SESSION['page']+1;
+      }
+      break;
+    case "Previous":
+      if ($_SESSION['page'] > 0)
+      {
+      $_SESSION['page'] = $_SESSION['page']-1;
+      }
+      break;
+    case "Cancel":
+      $_SESSION['page'] = 0;
+      $reserv = new Reservation();
+      break;
   }
-  if (isset($_POST['nplace']))
-  {
-    $reserv->AddNplace($_POST['nplace']);
-  }
-  if (isset($_POST['name']))
-  {
-    $_SESSION['name']= $_POST['name'];
-  }
-  if (isset($_POST['age']))
-  {
-    $_SESSION['age']= $_POST['age'];
-  }
+}
+
   $_SESSION['reserv'] = serialize($reserv);
-  $_SESSION['nav'] = serialize($nav);
  ?>
