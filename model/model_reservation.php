@@ -21,7 +21,8 @@
   {
     $views[0] = "views/view1.php";
     $views[1] = "views/view2.php";
-    $views[2] = "views/end.php";
+    $views[2] = "views/confirmation.php";
+    $views[3] = "views/end.php";
   }
   if (!isset($_SESSION['page'])){$_SESSION['page'] = 0;}
 
@@ -46,6 +47,11 @@
       $_SESSION['page'] = 0;
       $reserv = new Reservation();
       break;
+    case "Send":
+        include("model/model_database.php");
+        $senddata -> execute();
+        $_SESSION['page'] = sizeof($views)-1;
+        break;
   }
 }
 

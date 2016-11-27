@@ -3,7 +3,7 @@ class Reservation
 {
   private $destination = "";
   private $nplaces = "";
-  private $assurance;
+  private $assurance="";
   private $name;
   private $age;
 

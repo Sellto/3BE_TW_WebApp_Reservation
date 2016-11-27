@@ -10,7 +10,7 @@
   <?php
   if(!empty($_GET['page']) && (is_file("model/model_".$_GET['page'].".php")))
   {
-    include('model/model_manager.php');
+    include("model/model_".$_GET['page'].".php");
   }
   else {
     include('model/model_reservation.php');
