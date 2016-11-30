@@ -48,8 +48,13 @@
       $reserv = new Reservation();
       break;
     case "Send":
-        include("model/model_database.php");
-        $senddata -> execute();
+        include_once("model/model_database.php");
+        $mysql = Database::ConnectToDatabase("localhost","root","root");
+        Database::SelectDatabase($mysql,"Reservation_app");
+        Database::SelectTable($mysql,"Listing_Reservervation");
+        Database::SendData($mysql,"Listing_Reservervation",
+        $reserv->GetDestination(),$reserv->GetNplace(),$reserv->GetAssurance(),
+        implode( ",", $reserv->GetName()),implode( ",", $reserv->GetAge()));
         $_SESSION['page'] = sizeof($views)-1;
         break;
   }
