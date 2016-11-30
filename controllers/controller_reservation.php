@@ -1,6 +1,7 @@
 <?php
   //Reservation
-  include('class_reservation.php');
+  include('model/class_reservation.php');
+  include_once("model/class_database.php");
   if (!isset($_SESSION['reserv']))
   {
     $reserv = new Reservation();
@@ -48,7 +49,6 @@
       $reserv = new Reservation();
       break;
     case "Send":
-        include_once("model/model_database.php");
         $mysql = Database::ConnectToDatabase("localhost","root","root");
         Database::SelectDatabase($mysql,"Reservation_app");
         Database::SelectTable($mysql,"Listing_Reservervation");

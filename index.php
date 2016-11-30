@@ -13,9 +13,9 @@
     include("model/model_".$_GET['page'].".php");
   }
   else {
-    include('model/model_reservation.php');
+    include('controllers/controller_reservation.php');
     include($views[$_SESSION['page']]);
-    include('controllers/navbar.php');
+    include('views/navbar.php');
   }
   ?>
 </body>
