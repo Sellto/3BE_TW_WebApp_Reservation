@@ -27,5 +27,14 @@ class Database
     $mysql->exec("INSERT INTO $table(destination, nplace, assurance, person, age)
     VALUES ('".$dest."','".$nplace."','".$ass."','".$person."','".$age."')");
   }
+
+  public static function GetAllData($mysql,$table)
+  {
+    $alldata = $mysql->query("SELECT * FROM $table");
+    while ($line = $alldata->fetch(PDO::FETCH_ASSOC))
+    {
+      echo $line['destination'];
+    }
+  }
 }
 ?>

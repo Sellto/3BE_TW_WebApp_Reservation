@@ -8,7 +8,7 @@
 </head>
 <body>
   <?php
-  if(!empty($_GET['page']) && (is_file("model/model_".$_GET['page'].".php")))
+  if(!empty($_GET['page']) && (is_file("controllers/controller_".$_GET['page'].".php")))
   {
     include("controllers/controller_".$_GET['page'].".php");
   }
