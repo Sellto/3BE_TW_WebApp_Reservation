@@ -8,7 +8,10 @@ include_once("model/class_database.php");
    }
    if((isset($_POST['Modify']))&& ($_POST['Modify'] != "Abort"))
    {
-     Database::ReplaceData($mysql,"Listing_Reservation",(int)$_POST['Delete']);
+     $person = implode( ",",$_POST['name']);
+     $age = implode( ",", $_POST['age']);
+     Database::ReplaceData((int)$_POST['Modify'],$mysql,"Listing_Reservation",$_POST['dest'],$_POST['nplace'],$_POST['assurance'],$person,$age);
+
    }
    $table = Database::GetAllData($mysql,"Listing_Reservation");
    foreach ($table as $line)

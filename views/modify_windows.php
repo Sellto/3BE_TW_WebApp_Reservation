@@ -4,6 +4,8 @@
         <div class="lineform"><div class="nameform">Destination</div><input type="text" name="dest" value=<?php echo $line['destination'] ?>> </div>
         <div class="lineform"><div class="nameform">Nombres de places</div><input type="text" name="nplace" value=<?php echo $line['nplace'] ?>></div>
         <div class="lineform"><div class="nameform">Assurance annulation</div>
+        <div>Oui</div><input type="radio" name="assurance" value="Oui">
+        <div>Non</div><input type="radio" name="assurance" value="Non">
         <?php
         for ($i = 0;$i <= $line['nplace']-1;$i++)
         {

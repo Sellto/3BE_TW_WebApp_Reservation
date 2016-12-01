@@ -31,7 +31,8 @@ class Database
 
   public static function ReplaceData($ID,$mysql,$table,$dest,$nplace,$ass,$person,$age)
   {
-    $mysql->exec("UPDATE $table SET destination=$dest,nplace=$nplace,assurance=$ass,person=$person,age=$age WHERE ID = $ID");
+    $update = $mysql->prepare("UPDATE $table SET destination='".$dest."',nplace='".$nplace."',assurance='".$ass."',person='".$person."',age='".$age."' WHERE ID='".$ID."'");
+    $update->execute();
   }
 
   public static function GetAllData($mysql,$table)
