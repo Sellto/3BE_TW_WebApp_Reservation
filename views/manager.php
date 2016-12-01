@@ -10,8 +10,7 @@ for ($i = 0;$i < $line['nplace'];$i++)
   echo "<div>".$line['age'][$i]."</div>";
 }
 ?>
-<form method="POST" action="index.php?page=manager">
-  <button type="submit" name="Delete" value=<?php echo $line['ID']?>>Delete</button>
-</form>
+<a href=<?php echo "#Delete".$line['ID']?>>Delete</a>
+<a href=<?php echo "#Modify".$line['ID']?>>Modify</a>
 </div>
 </div>

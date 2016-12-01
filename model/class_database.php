@@ -23,10 +23,15 @@ class Database
       age TEXT NOT NULL)");
     }
 
-  public static function SendData($mysql,$table, $dest,$nplace,$ass,$person,$age)
+  public static function SendData($mysql,$table,$dest,$nplace,$ass,$person,$age)
   {
     $mysql->exec("INSERT INTO $table(destination, nplace, assurance, person, age)
     VALUES ('".$dest."','".$nplace."','".$ass."','".$person."','".$age."')");
+  }
+
+  public static function ReplaceData($ID,$mysql,$table,$dest,$nplace,$ass,$person,$age)
+  {
+    $mysql->exec("UPDATE $table SET destination=$dest,nplace=$nplace,assurance=$ass,person=$person,age=$age WHERE ID = $ID");
   }
 
   public static function GetAllData($mysql,$table)
@@ -39,5 +44,6 @@ class Database
   {
     $mysql->exec("DELETE FROM $table WHERE ID = $line");
   }
+
 }
 ?>
