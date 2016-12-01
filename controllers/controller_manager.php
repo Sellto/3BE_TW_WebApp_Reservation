@@ -6,7 +6,7 @@ include_once("model/class_database.php");
    {
      Database::DelLine($mysql,"Listing_Reservation",(int)$_POST['Delete']);
    }
-   if((isset($_POST['Modify']))&& ($_POST['Delete'] != "Abort"))
+   if((isset($_POST['Modify']))&& ($_POST['Modify'] != "Abort"))
    {
      Database::ReplaceData($mysql,"Listing_Reservation",(int)$_POST['Delete']);
    }

@@ -11,8 +11,8 @@
           echo '<div class="lineform"><div class="nameform">Age</div><input type="text" name="age[]" value=' .$line["age"][$i].'></div>';
         }
         ?>
-        <button type="submit" name="Delete" value=<?php echo $line['ID']?>>Yes</button>
-        <button type="submit" name="Delete" value="No ">No</button>
+        <button type="submit" name="Modify" value=<?php echo $line['ID']?>>Save</button>
+        <button type="submit" name="Modify" value="Abort">Abort</button>
     </form>
 	</div>
 </div>
