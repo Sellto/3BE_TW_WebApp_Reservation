@@ -13,17 +13,8 @@ public function AddDestination($input){$this->destination = $input;}
 public function AddNplace($input){$this->nplaces = $input;}
 public function AddName($input){$this->name = $input;}
 public function AddAge($input){$this->age = $input;}
-public function AddAssurance($input)
-{
-  if ($input == null)
-  {
-    $this->assurance = "";
-  }
-  else
-  {
-    $this->assurance = "Checked";
-  }
-}
+public function AddAssurance($input){$this->assurance = $input;}
+
 
 
 //Get Data
