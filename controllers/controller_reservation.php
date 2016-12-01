@@ -1,7 +1,8 @@
 <?php
   //Reservation
-  include('model/class_reservation.php');
+  include_once('model/class_reservation.php');
   include_once("model/class_database.php");
+
   if (!isset($_SESSION['reserv']))
   {
     $reserv = new Reservation();
@@ -61,4 +62,8 @@
 }
 
   $_SESSION['reserv'] = serialize($reserv);
+
+//Display active views.
+include($views[$_SESSION['page']]);
+include('views/navbar.php');
  ?>
