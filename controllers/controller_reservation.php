@@ -52,8 +52,8 @@
     case "Send":
         $mysql = Database::ConnectToDatabase("localhost","root","root");
         Database::SelectDatabase($mysql,"Reservation_app");
-        Database::SelectTable($mysql,"Listing_Reservervation");
-        Database::SendData($mysql,"Listing_Reservervation",
+        Database::SelectTable($mysql,"Listing_Reservation");
+        Database::SendData($mysql,"Listing_Reservation",
         $reserv->GetDestination(),$reserv->GetNplace(),$reserv->GetAssurance(),
         implode( ",", $reserv->GetName()),implode( ",", $reserv->GetAge()));
         $_SESSION['page'] = sizeof($views)-1;

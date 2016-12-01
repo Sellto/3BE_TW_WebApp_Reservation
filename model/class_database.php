@@ -15,6 +15,7 @@ class Database
   public static function SelectTable($mysql,$table)
   {
     $mysql->exec("CREATE TABLE IF NOT EXISTS $table(
+      ID INT( 11 ) AUTO_INCREMENT PRIMARY KEY,
       destination TEXT NOT NULL,
       nplace TINYINT NOT NULL,
       assurance TEXT NOT NULL,
@@ -31,10 +32,12 @@ class Database
   public static function GetAllData($mysql,$table)
   {
     $alldata = $mysql->query("SELECT * FROM $table");
-    while ($line = $alldata->fetch(PDO::FETCH_ASSOC))
-    {
-      echo $line['destination'];
-    }
+    return $alldata->fetchAll();
+  }
+
+  public static function DelLine($mysql,$table,$line)
+  {
+    $mysql->exec("DELETE FROM $table WHERE ID = $line");
   }
 }
 ?>
