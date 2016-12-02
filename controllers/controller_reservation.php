@@ -3,6 +3,7 @@
   include('model/class_reservation.php');
   include("model/class_database.php");
   $formid = "myform";
+
   //Reservation
   if (!isset($_SESSION['reserv']))
   {
@@ -18,8 +19,16 @@
   if (isset($_POST['name'])){$reserv->AddName($_POST['name']);}
   if (isset($_POST['age'])){$reserv->AddAge($_POST['age']);}
 
-
   //Navigation
+
+  //Avoid a Mistake when field Name and Age is empty
+  if(null != $reserv->GetName()){$name = $reserv->GetName();}
+  else{$name = array("","","","","","","");}
+
+  if(null != $reserv->GetAge()){$age = $reserv->GetAge();}
+  else{$age= array("","","","","","","");}
+
+  //Create the Dynamic navigation.
   if (!isset($views))
   {
     $views[0] = "views/view1.php";
