@@ -47,10 +47,5 @@ switch ($_POST['Modify'])
 
 //Display All Data
 $datas = Database::GetAllReservation($mysql,"Listing_Reservation");
-foreach ($datas as $dbreserv)
-   {
-     include("views/manager.php");
-     include("views/modify_windows.php");
-     include("views/delete_windows.php");
-   }
+include("views/tablemanager.php");
 ?>
