@@ -35,16 +35,26 @@ class Database
     $update->execute();
   }
 
-  public static function GetAllData($mysql,$table)
+  public static function GetAllReservation($mysql,$table)
   {
     $alldata = $mysql->query("SELECT * FROM $table");
-    return $alldata->fetchAll();
+    $reservation = array();
+    foreach ($alldata->fetchAll() as $line)
+    {
+      $reservation[$line['ID']] = new Reservation();
+      $reservation[$line['ID']]->AddDestination($line['destination']);
+      $reservation[$line['ID']]->AddNplace($line['nplace']);
+      $reservation[$line['ID']]->AddAssurance($line['assurance']);
+      $reservation[$line['ID']]->AddName(explode(',',$line['person']));
+      $reservation[$line['ID']]->AddAge(explode(',',$line['age']));
+      $reservation[$line['ID']]->AddID($line['ID']);
+    }
+    return $reservation;
   }
 
   public static function DelLine($mysql,$table,$line)
   {
     $mysql->exec("DELETE FROM $table WHERE ID = $line");
   }
-
 }
 ?>

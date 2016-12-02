@@ -1,16 +1,16 @@
 <div>
-<div><?php echo $line['destination'] ?></div>
-<div><?php echo $line['nplace']?></div>
-<div><?php echo $line['assurance']?></div>
+<div><?php echo $reserv->GetDestination()?></div>
+<div><?php echo $reserv->GetNplace()?></div>
+<div><?php echo $reserv->GetAssurance() ?></div>
 <div>
 <?php
-for ($i = 0;$i < $line['nplace'];$i++)
+for ($i = 0;$i < $reserv->GetNplace();$i++)
 {
-  echo "<div>".$line['person'][$i]."</div>";
-  echo "<div>".$line['age'][$i]."</div>";
+  echo "<div>".$reserv->GetName()[$i]."</div>";
+  echo "<div>".$reserv->GetAge()[$i]."</div>";
 }
 ?>
-<a href=<?php echo "#Delete".$line['ID']?>>Delete</a>
-<a href=<?php echo "#Modify".$line['ID']?>>Modify</a>
+<a href=<?php echo "#Delete".$reserv->GetID()?>>Delete</a>
+<a href=<?php echo "#modify".$reserv->GetID()?>>Modify</a>
 </div>
 </div>

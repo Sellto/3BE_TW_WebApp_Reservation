@@ -1,7 +1,7 @@
 <?php
   //Reservation
-  include_once('model/class_reservation.php');
-  include_once("model/class_database.php");
+  include('model/class_reservation.php');
+  include("model/class_database.php");
 
   if (!isset($_SESSION['reserv']))
   {
