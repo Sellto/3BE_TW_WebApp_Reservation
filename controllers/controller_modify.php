@@ -15,6 +15,11 @@ if(!isset($_POST["modifystep".$dbreserv->GetID()])){$_POST["modifystep".$dbreser
 //Unique ID for the form
 $formid = "myform".$dbreserv->GetID();
 
+//Avoid a Mistake when field Name and Age is empty
+if(null != $reserv->GetName()){$name = $reserv->GetName();}
+
+if(null != $reserv->GetAge()){$age = $reserv->GetAge();}
+
 switch ($_POST["modifystep".$dbreserv->GetID()])
   {
     case "GotoStep1":
