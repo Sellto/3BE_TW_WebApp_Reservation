@@ -23,22 +23,25 @@ switch ($_POST['Modify'])
    {
      case "Abort":
       session_destroy();
-     break;
+      break;
      default:
-     $reservation = unserialize($_SESSION["reserv".$_POST['Modify']]);
-     if(isset($_POST['dest'])){$reservation->AddDestination($_POST['dest']);}
-     if(isset($_POST['nplace'])){$reservation->AddNplace($_POST['nplace']);}
-     if(isset($_POST['assurance'])){$reservation->AddAssurance($_POST['assurance']);}
-     if (isset($_POST['name'])){$reservation->AddName($_POST['name']);}
-     if (isset($_POST['age'])){$reservation->AddAge($_POST['age']);}
+      //Get The reservation information
+      $reservation = unserialize($_SESSION["reserv".$_POST['Modify']]);
+      //Change Data into Reservation Object
+      if (isset($_POST['dest'])){$reservation->AddDestination($_POST['dest']);}
+      if (isset($_POST['nplace'])){$reservation->AddNplace($_POST['nplace']);}
+      if (isset($_POST['assurance'])){$reservation->AddAssurance($_POST['assurance']);}
+      if (isset($_POST['name'])){$reservation->AddName($_POST['name']);}
+      if (isset($_POST['age'])){$reservation->AddAge($_POST['age']);}
 
-     //Replace Line into Database
-     Database::ReplaceData($_POST['Modify'],$mysql,"Listing_Reservation",
-     $reservation->GetDestination(),$reservation->GetNplace(),$reservation->GetAssurance(),
-     implode( ",", $reservation->GetName()),implode( ",", $reservation->GetAge()));
+      //Replace Line into Database
+      Database::ReplaceData($_POST['Modify'],$mysql,"Listing_Reservation",
+      $reservation->GetDestination(),$reservation->GetNplace(),$reservation->GetAssurance(),
+      implode( ",", $reservation->GetName()),implode( ",", $reservation->GetAge()));
 
-     $_SESSION["reserv".$_POST['Modify']] = serialize($reservation);
-     break;
+      //Keep Data To modify the same reservation Later.
+      $_SESSION["reserv".$_POST['Modify']] = serialize($reservation);
+      break;
    }
 }
 
