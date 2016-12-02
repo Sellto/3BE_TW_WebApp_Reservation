@@ -1,8 +1,9 @@
 <?php
-  //Reservation
+  //include
   include('model/class_reservation.php');
   include("model/class_database.php");
 
+  //Reservation
   if (!isset($_SESSION['reserv']))
   {
     $reserv = new Reservation();

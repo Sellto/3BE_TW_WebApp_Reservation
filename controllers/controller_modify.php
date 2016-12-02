@@ -1,12 +1,9 @@
 <?php
-if(!isset($_SESSION['reserv']))
-{
-  $_SESSION['reserv'] = $reserv;
-}
-else
-{
-  $reserv = unserialize($_SESSION['reserv']);
-}
+//Get Reservation that you want to modify
+if(!isset($_SESSION['reserv'])){$_SESSION['reserv'] = $reserv;}
+else{$reserv = unserialize($_SESSION['reserv']);}
+
+//Navigation
 if(!isset($_POST['dest']))
 {
   include("views/view1.php");
@@ -21,5 +18,7 @@ else
   unset($_POST['dest']);
   echo '<button type="submit" name="Modify" form="myform" formaction="index.php?page=manager#modify'.$reserv->GetID().'">Previous</button>';
 }
+
+//Save Modification Throught the Navigation.
 $_SESSION['reserv'] = serialize($reserv);
 ?>
