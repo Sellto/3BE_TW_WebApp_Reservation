@@ -28,7 +28,7 @@ switch ($_POST["modifystep".$dbreserv->GetID()])
       if(isset($_POST['age'])){$reserv->AddAge($_POST['age']);}
       //View Step1
       include("views/form1.php");
-      echo '<button type="submit" name="modifystep'.$dbreserv->GetID().'" form="myform'.$dbreserv->GetID().'" formaction="index.php?page=manager#modify'.$reserv->GetID().'" value="GotoStep2">Next</button>';
+      echo '<button type="submit" class="btn btn-primary" name="modifystep'.$dbreserv->GetID().'" form="myform'.$dbreserv->GetID().'" formaction="index.php?page=manager#modify'.$reserv->GetID().'" value="GotoStep2">Next</button>';
       break;
     case "GotoStep2":
       //keep data when push on Next button
@@ -37,7 +37,7 @@ switch ($_POST["modifystep".$dbreserv->GetID()])
       if(isset($_POST['assurance'])){$reserv->AddAssurance($_POST['assurance']);}
       //View Step2
       include("views/form2.php");
-      echo '<button type="submit" name="modifystep'.$dbreserv->GetID().'" form="myform'.$dbreserv->GetID().'" formaction="index.php?page=manager#modify'.$reserv->GetID().'" value="GotoStep1">Previous</button>';
+      echo '<button type="submit" class="btn btn-primary" name="modifystep'.$dbreserv->GetID().'" form="myform'.$dbreserv->GetID().'" formaction="index.php?page=manager#modify'.$reserv->GetID().'" value="GotoStep1">Previous</button>';
       break;
   }
 
