@@ -2,7 +2,7 @@
   //include
   include('model/class_reservation.php');
   include("model/class_database.php");
-
+  $formid = "myform";
   //Reservation
   if (!isset($_SESSION['reserv']))
   {

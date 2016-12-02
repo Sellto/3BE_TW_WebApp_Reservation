@@ -14,25 +14,37 @@ if((isset($_POST['Delete']))&& ($_POST['Delete'] != "no"))
      Database::DelLine($mysql,"Listing_Reservation",(int)$_POST['Delete']);
    }
 
-//Modify Content
-if((isset($_POST['Modify']))&& ($_POST['Modify'] != "Abort"))
-   {
-     $reserv = unserialize($_SESSION['reserv']);
 
-     if (isset($_POST['name'])){$reserv->AddName($_POST['name']);}
-     if (isset($_POST['age'])){$reserv->AddAge($_POST['age']);}
+//Modify Content
+if (isset($_POST['Modify']))
+{
+//$reservation = unserialize($_SESSION["reserv".$_POST['Modify']]);
+switch ($_POST['Modify'])
+   {
+     case "Abort":
+      session_destroy();
+     break;
+     default:
+     $reservation = unserialize($_SESSION["reserv".$_POST['Modify']]);
+     if(isset($_POST['dest'])){$reservation->AddDestination($_POST['dest']);}
+     if(isset($_POST['nplace'])){$reservation->AddNplace($_POST['nplace']);}
+     if(isset($_POST['assurance'])){$reservation->AddAssurance($_POST['assurance']);}
+     if (isset($_POST['name'])){$reservation->AddName($_POST['name']);}
+     if (isset($_POST['age'])){$reservation->AddAge($_POST['age']);}
 
      //Replace Line into Database
      Database::ReplaceData($_POST['Modify'],$mysql,"Listing_Reservation",
-     $reserv->GetDestination(),$reserv->GetNplace(),$reserv->GetAssurance(),
-     implode( ",", $reserv->GetName()),implode( ",", $reserv->GetAge()));
+     $reservation->GetDestination(),$reservation->GetNplace(),$reservation->GetAssurance(),
+     implode( ",", $reservation->GetName()),implode( ",", $reservation->GetAge()));
 
-     $_SESSION['reserv']=serialize($reserv);
+     $_SESSION["reserv".$_POST['Modify']] = serialize($reservation);
+     break;
    }
+}
 
 //Display All Data
 $datas = Database::GetAllReservation($mysql,"Listing_Reservation");
-foreach ($datas as $reserv)
+foreach ($datas as $dbreserv)
    {
      include("views/manager.php");
      include("views/modify_windows.php");

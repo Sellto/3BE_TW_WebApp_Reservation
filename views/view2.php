@@ -4,7 +4,7 @@
       </div>
       <div class="details">
       </div>
-      <form method="post" id="myform">
+      <form method="post" id=<?php echo $formid ?>>
         <div class="Form">
             <?php
             for ($i = 0;$i < $reserv->GetNplace();$i++)
