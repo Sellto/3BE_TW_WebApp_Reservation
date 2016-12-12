@@ -60,7 +60,7 @@
       $reserv = new Reservation();
       break;
     case "Send":
-        $mysql = Database::ConnectToDatabase("localhost","root","root");
+        $mysql = Database::ConnectToDatabase("localhost","root","");
         Database::SelectDatabase($mysql,"Reservation_app");
         Database::SelectTable($mysql,"Listing_Reservation");
         Database::SendData($mysql,"Listing_Reservation",

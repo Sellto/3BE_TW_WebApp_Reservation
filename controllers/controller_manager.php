@@ -4,7 +4,7 @@ include("model/class_database.php");
 include("model/class_reservation.php");
 
 //Conection to DB
-$mysql = Database::ConnectToDatabase("localhost","root","root");
+$mysql = Database::ConnectToDatabase("localhost","root","");
 Database::SelectDatabase($mysql,"Reservation_app");
 
 
