@@ -1,4 +1,4 @@
-<div class="Container">
+<div class="Container2">
 <div id=<?php echo "modify".$dbreserv->GetID()?> class=windows>
   <div>
 

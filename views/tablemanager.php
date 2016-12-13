@@ -1,4 +1,4 @@
-<div class="table-responsive">
+<div class="container tablemanager">
 <table class="table">
 <thead>
       <tr>
@@ -20,3 +20,4 @@ foreach ($datas as $dbreserv)
 ?>
 </tbody>
 </table>
+</div>

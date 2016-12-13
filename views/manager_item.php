@@ -13,6 +13,6 @@ for ($i = 0;$i < $dbreserv->GetNplace();$i++)
 }
 ?>
 </td>
-<td><a href=<?php echo "#Delete".$dbreserv->GetID()?>>Delete</a>
-<a href=<?php echo "#modify".$dbreserv->GetID()?>>Modify</a></td>
+<td><a href=<?php echo "#Delete".$dbreserv->GetID()?>><span class="glyphicon glyphicon-trash"></span></a>
+<a href=<?php echo "#modify".$dbreserv->GetID()?>><span class="glyphicon glyphicon-file"></a></td>
 </tr>
