@@ -1,4 +1,4 @@
-<div class="container button">
+<div class="container">
 <nav class="btn-group pull-right">
     <?php
       if (($_SESSION['page'] > 0) && ($_SESSION['page'] < sizeof($views)-2))
@@ -26,4 +26,7 @@
       ?>
     </button>
 </nav>
+<div class="foot">
+  Design by Selleslagh T.
+</div>
 </div>
