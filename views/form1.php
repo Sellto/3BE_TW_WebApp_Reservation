@@ -9,8 +9,8 @@
             </div>
             <div class="form-group  col-md-2">
               <Label for="assurance">Assurance annulation</Label>
-              <div class="form-inline" required="true" id="assurance">
-                  <Label class="radio-inline" ><input type="radio" name="assurance" value="Oui">Oui</Label>
+              <div class="form-inline" id="assurance">
+                  <Label class="radio-inline" ><input type="radio" name="assurance" value="Oui" required>Oui</Label>
                   <Label class="radio-inline" ><input type="radio" name="assurance" value="Non">Non</Label>
               </div>
             </div>

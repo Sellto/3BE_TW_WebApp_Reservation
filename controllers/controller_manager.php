@@ -18,11 +18,9 @@ if((isset($_POST['Delete']))&& ($_POST['Delete'] != "no"))
 //Modify Content
 if (isset($_POST['Modify']))
 {
-//$reservation = unserialize($_SESSION["reserv".$_POST['Modify']]);
 switch ($_POST['Modify'])
    {
      case "Abort":
-      session_destroy();
       break;
      default:
       //Get The reservation information
@@ -42,7 +40,9 @@ switch ($_POST['Modify'])
       //Keep Data To modify the same reservation Later.
       $_SESSION["reserv".$_POST['Modify']] = serialize($reservation);
       break;
+
    }
+unset($_POST);
 }
 
 //Display All Data

@@ -58,6 +58,7 @@
     case "Cancel":
       $_SESSION['page'] = 0;
       $reserv = new Reservation();
+      session_destroy();
       break;
     case "Send":
         $mysql = Database::ConnectToDatabase("localhost","root","");

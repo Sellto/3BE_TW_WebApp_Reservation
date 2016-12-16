@@ -10,7 +10,7 @@ else
 }
 
 //Navigation
-if(!isset($_POST["modifystep".$dbreserv->GetID()])){$_POST["modifystep".$dbreserv->GetID()] = "GotoStep1";}
+if(!isset($_POST["modifystep".$dbreserv->GetID()])){$_POST["modifystep".$dbreserv->GetID()] = "GotoStep1";$_SESSION["reserv".$reserv->GetID()] = serialize($reserv);}
 
 //Unique ID for the form
 $formid = "myform".$dbreserv->GetID();
