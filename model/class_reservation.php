@@ -26,5 +26,25 @@ public function GetAssurance(){return $this->assurance;}
 public function GetName(){return $this->name;}
 public function GetAge(){return $this->age;}
 public function GetID(){return $this->id;}
+public function GetPrice()
+{
+  $price = 0;
+  for ($i = 0; $i < $this->nplaces; $i++)
+  {
+      if (intval($this->age[$i]) > 12)
+      {
+        $price = $price + 15;
+      }
+      else
+      {
+        $price = $price + 10;
+      }
+  }
+  if ($this->assurance == "Oui")
+  {
+    $price = $price + 20;
+  }
+  return $price;
+}
 }
 ?>
