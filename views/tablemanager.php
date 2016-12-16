@@ -6,6 +6,7 @@
         <th>Number of Persons</th>
         <th>Assurance</th>
         <th>Traveller(s)</th>
+        <th>Price</th>
         <th></th>
       </tr>
 </thead>

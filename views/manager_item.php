@@ -12,6 +12,7 @@ for ($i = 0;$i < $dbreserv->GetNplace();$i++)
   echo '</div>';
 }
 ?>
+<td><?php echo $dbreserv->GetPrice() ?>€</td>
 </td>
 <td><a href=<?php echo "#Delete".$dbreserv->GetID()?>><span class="glyphicon glyphicon-trash"></span></a>
 <a href=<?php echo "#modify".$dbreserv->GetID()?>><span class="glyphicon glyphicon-file"></a></td>
