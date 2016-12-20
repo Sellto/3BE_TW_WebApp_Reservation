@@ -1,10 +1,10 @@
 body
 {
 background-image: url('background.jpg');
--webkit-background-size: cover;
--moz-background-size: cover;
--o-background-size: cover;
-background-size: cover;
+-webkit-background-size: fixed;
+-moz-background-size: fixed;
+-o-background-size: fixed;
+background-size: fixed;
 padding:5%;
 }
 

@@ -2,6 +2,7 @@
   //include
   include('model/class_reservation.php');
   include("model/class_database.php");
+  include("controllers/controller_lib.php");
   $formid = "myform";
 
   //Reservation
@@ -13,11 +14,19 @@
   {
     $reserv = unserialize($_SESSION['reserv']);
   }
-  if (isset($_POST['dest'])){$reserv->AddDestination($_POST['dest']);}
+  if (isset($_POST['dest'])){$reserv->AddDestination(checkcarac($_POST['dest']));}
   if (isset($_POST['assurance'])){$reserv->AddAssurance($_POST['assurance']);}
-  if (isset($_POST['nplace'])){$reserv->AddNplace($_POST['nplace']);}
-  if (isset($_POST['name'])){$reserv->AddName($_POST['name']);}
-  if (isset($_POST['age'])){$reserv->AddAge($_POST['age']);}
+  if (isset($_POST['nplace'])){$reserv->AddNplace(checknum($_POST['nplace']));}
+  if (isset($_POST['name']))
+  {
+    checkcarac(implode( "",$_POST['name']));
+    $reserv->AddName($_POST['name']);
+  }
+  if (isset($_POST['age']))
+  {
+    checknum(implode( "",$_POST['age']));
+    $reserv->AddAge($_POST['age']);
+  }
 
   //Navigation
 

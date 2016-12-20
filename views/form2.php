@@ -9,7 +9,7 @@
               <Label class="control-label"  for="Name" >Nom </Label>
               </div>
               <div class="col-md-8">
-              <input class="form-control" id="Name" type="text" name="name[]" value='.$name[$i].'>
+              <input class="form-control" pattern="[A-Za-z]*" id="Name" type="text" name="name[]" value='.$name[$i].'>
               </div>
               </div>';
               echo '<div class=" form-group col-md-6">

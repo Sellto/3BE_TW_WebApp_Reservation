@@ -2,9 +2,10 @@
 //Include
 include("model/class_database.php");
 include("model/class_reservation.php");
+include("controllers/controller_lib.php");
 
 //Conection to DB
-$mysql = Database::ConnectToDatabase("localhost","root","root");
+$mysql = Database::ConnectToDatabase("localhost","root","");
 Database::SelectDatabase($mysql,"Reservation_app");
 
 
@@ -26,11 +27,19 @@ switch ($_POST['Modify'])
       //Get The reservation information
       $reservation = unserialize($_SESSION["reserv".$_POST['Modify']]);
       //Change Data into Reservation Object
-      if (isset($_POST['dest'])){$reservation->AddDestination($_POST['dest']);}
-      if (isset($_POST['nplace'])){$reservation->AddNplace($_POST['nplace']);}
+      if (isset($_POST['dest'])){$reservation->AddDestination(checkcarac($_POST['dest']));}
+      if (isset($_POST['nplace'])){$reservation->AddNplace(checknum($_POST['nplace']));}
       if (isset($_POST['assurance'])){$reservation->AddAssurance($_POST['assurance']);}
-      if (isset($_POST['name'])){$reservation->AddName($_POST['name']);}
-      if (isset($_POST['age'])){$reservation->AddAge($_POST['age']);}
+      if (isset($_POST['name']))
+      {
+        checkcarac(implode( "",$_POST['name']));
+        $reservation->AddName($_POST['name']);
+      }
+      if (isset($_POST['age']))
+      {
+        checknum(implode( "",$_POST['age']));
+        $reservation->AddAge($_POST['age']);
+      }
 
       //Replace Line into Database
       Database::ReplaceData($_POST['Modify'],$mysql,"Listing_Reservation",

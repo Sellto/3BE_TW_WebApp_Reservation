@@ -1,7 +1,7 @@
 <form method="POST" id=<?php echo $formid ?>>
             <div class="form-group col-md-5">
               <label for="destination">Destination</label>
-              <input class="form-control" required="true" id="destination" type="text" name="dest" value=<?php echo $reserv->GetDestination() ?>>
+              <input class="form-control" pattern="[A-Za-z]*" placehodler"" required="true" id="destination" type="text" name="dest" value=<?php echo $reserv->GetDestination() ?>>
             </div>
             <div class="form-group  col-md-5">
               <Label for="nplace">Nombres de places</Label>

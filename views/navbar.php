@@ -27,6 +27,6 @@
     </button>
 </nav>
 <div class="foot">
-  Design by Selleslagh T.
+  Les caractères < > ; ? "/ _ - ! . , [ ] ( ) { } ne sont pas autorisés
 </div>
 </div>
